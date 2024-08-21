@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# YT Nexus Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+YT Nexus Client is a React-based application that interfaces with the YT Nexus API to search and display YouTube videos based on channel and keyword input. It provides a user-friendly interface for interacting with the YouTube data managed by the YT Nexus backend.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Search for videos by channel name and keyword.
+- Display video results in an interactive grid layout.
+- View video details and play videos directly from the application.
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js (>= 14.x)
+- npm (or yarn)
 
-### `npm test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Clone the Repository**
 
-### `npm run build`
+   ```bash
+   git clone https://github.com/your-repo/yt-nexus-client.git
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Navigate to the Project Directory**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```bash
+   cd yt-nexus-client
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Install Dependencies**
 
-### `npm run eject`
+   ```bash
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. **Run the Application**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
+   npm start
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   The application will start and open in your default web browser. By default, it runs on `http://localhost:3000`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Usage
 
-## Learn More
+1. **Enter Channel Name**: Input the YouTube channel name you want to search within.
+2. **Enter Keyword**: Provide a keyword to filter the video results.
+3. **Click Search**: Press the search button to retrieve and display the videos matching the criteria.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Folder Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `src/`: Contains all source code.
+  - `components/`: Includes reusable React components.
+    - `ChannelSearch.js`: Main component for searching and displaying videos.
+  - `assets/`: Contains static assets like images.
+  - `App.js`: Entry point of the React application.
+  - `App.css`: Styles for the application.
 
-### Code Splitting
+### Styling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The application uses modern and minimalistic design principles, ensuring a clean and responsive user experience. Styles are defined in `App.css` and are applied globally across the application.
 
-### Analyzing the Bundle Size
+### API Integration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The client communicates with the YT Nexus API, which should be running locally on port 5000. Make sure the backend server is up and running before starting the client.
 
-### Making a Progressive Web App
+### Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Author**: Keagan Gilmore
+- **Email**: [keagangilmore@gmail.com](mailto:keagangilmore@gmail.com)
