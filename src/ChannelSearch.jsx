@@ -17,16 +17,16 @@ const ChannelSearch = () => {
       setErrorMessage(''); // Reset error message before each search
       switch (searchMode) {
         case 'channel-keyword':
-          response = await axios.get(`https://lxlibrary.online/yt-nexus/yt-nexus/channel/${channelName}/keyword/${keyword}`);
+          response = await axios.get(`https://lxlibrary.online/yt-nexus/channel/${channelName}/keyword/${keyword}`);
           break;
         case 'search':
-          response = await axios.get(`https://lxlibrary.online/yt-nexus/yt-nexus/search?keyword=${keyword}`);
+          response = await axios.get(`https://lxlibrary.online/yt-nexus/search?keyword=${keyword}`);
           break;
         case 'multi-channel':
-          response = await axios.post(`https://lxlibrary.online/yt-nexus/yt-nexus/multi-channel-search?keyword=${keyword}`, [channelName]);
+          response = await axios.post(`https://lxlibrary.online/yt-nexus/multi-channel-search?keyword=${keyword}`, [channelName]);
           break;
         case 'multi-video':
-          response = await axios.post(`https://lxlibrary.online/yt-nexus/yt-nexus/multi-video-search?keyword=${keyword}`, []);
+          response = await axios.post(`https://lxlibrary.online/yt-nexus/multi-video-search?keyword=${keyword}`, []);
           break;
         default:
           break;
