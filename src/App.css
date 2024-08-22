@@ -238,7 +238,7 @@ body {
 }
 
 .donation-text {
-  font-size: 16px;
+  font-size: 15px;
   color: #555; /* Subtle text color */
   font-weight: bold;
 }
@@ -246,7 +246,6 @@ body {
 .paypal-logo{
   width: 60px; /* Adjust the size of the icons */
   height: auto;
-  margin-left: 10px; /* Space between icons */
 }
 
 .github-icon {
@@ -270,7 +269,7 @@ body {
   text-shadow: 0 0 8px rgb(4, 244, 247), 0 0 5px rgb(4, 244, 247), 0 0 16px rgb(4, 244, 247);
   font-style: italic;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 16px;
   position: fixed;
   top: 20px;
   left: 20px;
@@ -279,15 +278,35 @@ body {
 .powered-by-lxlibrary .text {
   margin-right: 10px; /* Add some spacing between the text and the logo */
   position: fixed;
-  top: 30px;
-  left: 80px;
+  top: 95px;
+  left: 20px;
   font-family: 'Orbitron';
 
 }
 
 .powered-by-lxlibrary .lx-logo {
-  width: 50px;
-  height: 50px;
+  width: 75px;
+  height: 75px;
   position: fixed;
   top: 20px;
+}
+
+.contact-icon-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.contact-icon-section a {
+  color: #333;
+  margin-left: 10px;
+  transition: color 0.3s;
+}
+
+.contact-icon-section a:hover {
+  color: #007BFF;
 }

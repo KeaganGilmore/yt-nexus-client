@@ -164,8 +164,16 @@ const ChannelSearch = () => {
         <div className="text">Powered by LXLibrary</div>
         <img src={lxLogo} alt="LXLibrary Logo" className="lx-logo" />
       </a>
+      <div className="contact-icon-section">
+        <a href="mailto:keagangilmore@gmail.com" title="Email" target="_blank" rel="noopener noreferrer">
+          <i className="fas fa-envelope fa-2x"></i>
+        </a>
+        <a href="https://discord.com/users/keagan2980" title="Discord" target="_blank" rel="noopener noreferrer">
+          <i className="fab fa-discord fa-2x"></i>
+        </a>
       </div>
-    
+      </div>
+      
     
   );
 };
