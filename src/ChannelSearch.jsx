@@ -1,58 +1,125 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css';
-
-// Import logo asset
 import logo from './assets/nexus-logo.png';
+import lxLogo from './assets/logo.svg';
 
 const ChannelSearch = () => {
+  const [searchMode, setSearchMode] = useState('channel-keyword');
   const [channelName, setChannelName] = useState('');
   const [keyword, setKeyword] = useState('');
-  const [videos, setVideos] = useState([]);
+  const [videoWordCounts, setVideoWordCounts] = useState([]);
 
   const handleSearch = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/youtube/channel/${channelName}/keyword/${keyword}`);
-      setVideos(response.data.videos);
+      let response;
+      switch (searchMode) {
+        case 'channel-keyword':
+          response = await axios.get(`https://lxlibrary.online/yt-nexus/yt-nexus/channel/${channelName}/keyword/${keyword}`);
+          setVideoWordCounts(response.data.videos);
+          break;
+        case 'search':
+          response = await axios.get(`https://lxlibrary.online/yt-nexus/yt-nexus/search?keyword=${keyword}`);
+          setVideoWordCounts(response.data.videos);
+          break;
+        case 'multi-channel':
+          response = await axios.post(`https://lxlibrary.online/yt-nexus/yt-nexus/multi-channel-search?keyword=${keyword}`, [channelName]);
+          setVideoWordCounts(response.data.videos);
+          break;
+        case 'multi-video':
+          response = await axios.post(`https://lxlibrary.online/yt-nexus/yt-nexus/multi-video-search?keyword=${keyword}`, []);
+          setVideoWordCounts(response.data.videos);
+          break;
+        default:
+          break;
+      }
     } catch (error) {
       console.error('Error:', error);
     }
   };
 
   return (
-    <div className="nexus-container">
-      <header className="nexus-header">
-        <img src={logo} alt="YT Nexus" className="nexus-logo" />
-        <h1 className="nexus-title">YT Nexus</h1>
-      </header>
-      
-      <main className="nexus-content">
-        <div className="nexus-input-group">
-          <input
-            type="text"
-            placeholder="Enter Channel Name"
-            value={channelName}
-            onChange={(e) => setChannelName(e.target.value)}
-            className="nexus-input"
-          />
-          <input
-            type="text"
-            placeholder="Enter Keyword"
-            value={keyword}
-            onChange={(e) => setKeyword(e.target.value)}
-            className="nexus-input"
-          />
-          <button className="nexus-button" onClick={handleSearch}>
-            Search
-          </button>
-        </div>
+    <div>
+      <div className="nexus-container">
+        <header className="nexus-header">
+          <img src={logo} alt="YT Nexus" className="nexus-logo" />
+          <h1 className="nexus-title">YT Nexus</h1>
+        </header>
         
-        <section className="nexus-video-list">
-          {videos.length > 0 && (
-            <>
+        <main className="nexus-content">
+          <div className="nexus-input-group">
+            <div className="nexus-search-mode">
+              <label htmlFor="search-mode">Search Mode:</label>
+              <select
+                id="search-mode"
+                value={searchMode}
+                onChange={(e) => setSearchMode(e.target.value)}
+                className="nexus-input"
+              >
+                <option value="channel-keyword">Channel Keyword Search</option>
+                <option value="search">Search Across DB</option>
+              </select>
+            </div>
+
+            {searchMode === 'channel-keyword' && (
+              <>
+                <input
+                  type="text"
+                  placeholder="Enter Channel Name"
+                  value={channelName}
+                  onChange={(e) => setChannelName(e.target.value)}
+                  className="nexus-input"
+                />
+                <input
+                  type="text"
+                  placeholder="Enter Keyword"
+                  value={keyword}
+                  onChange={(e) => setKeyword(e.target.value)}
+                  className="nexus-input"
+                />
+              </>
+            )}
+
+            {searchMode === 'search' && (
+              <input
+                type="text"
+                placeholder="Enter Keyword"
+                value={keyword}
+                onChange={(e) => setKeyword(e.target.value)}
+                className="nexus-input"
+              />
+            )}
+
+            {searchMode === 'multi-channel' && (
+              <input
+                type="text"
+                placeholder="Enter Comma-Separated Channel Names"
+                value={channelName}
+                onChange={(e) => setChannelName(e.target.value)}
+                className="nexus-input"
+              />
+            )}
+
+            {searchMode === 'multi-video' && (
+              <input
+                type="text"
+                placeholder="Enter Comma-Separated Video IDs"
+                value={keyword}
+                onChange={(e) => setKeyword(e.target.value)}
+                className="nexus-input"
+              />
+            )}
+
+            <button className="nexus-button" onClick={handleSearch}>
+              Search
+            </button>
+          </div>
+
+          {videoWordCounts.length > 0 && (
+            <section className="nexus-video-list">
               <h2 className="nexus-subtitle">Results:</h2>
               <div className="nexus-video-grid">
-                {videos.map((video) => (
+                {videoWordCounts.map((video) => (
                   <div key={video.video_id} className="nexus-video-item">
                     <iframe
                       width="100%"
@@ -75,11 +142,31 @@ const ChannelSearch = () => {
                   </div>
                 ))}
               </div>
-            </>
+            </section>
           )}
-        </section>
-      </main>
-    </div>
+        </main>
+      </div>
+      
+      {/* Info Container at Bottom Left */}
+      <div className="info-container">
+        <div className="info-bubble">i</div>
+      </div>
+      <div class="icon-section">
+      <span class="donation-text">Donations Appreciated</span>
+      <a href="https://www.paypal.com/paypalme/KeaganGilmore15?v=1&utm_source=unp&utm_medium=email&utm_campaign=RT000269&utm_unptid=c98f4490-8868-11ee-9291-3cecef432c93&ppid=RT000269&cnac=ZA&rsta=en_US%28en-ZA%29&cust=2C5VJWAXPHY9E&unptid=c98f4490-8868-11ee-9291-3cecef432c93&calc=f751073bfeade&unp_tpcid=ppme-social-user-profile-created&page=main%3Aemail%3ART000269&pgrp=main%3Aemail&e=cl&mchn=em&s=ci&mail=sys&appVersion=1.216.0&xt=104038%2C127632" target="_blank" title="Donate via PayPal">
+          <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" alt="PayPal" class="paypal-logo" />
+      </a>
+      <a href="https://github.com/KeaganGilmore/YT-Nexus_API" className="github-icon" target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-github"></i>
+              </a>
+      </div>
+      <a href="https://website.lxlibrary.online/" className="powered-by-lxlibrary" target="_blank">
+        <div className="text">Powered by LXLibrary</div>
+        <img src={lxLogo} alt="LXLibrary Logo" className="lx-logo" />
+      </a>
+      </div>
+    
+    
   );
 };
 

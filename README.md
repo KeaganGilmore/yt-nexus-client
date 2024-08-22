@@ -66,7 +66,17 @@ The application uses modern and minimalistic design principles, ensuring a clean
 
 The client communicates with the YT Nexus API, which should be running locally on port 5000. Make sure the backend server is up and running before starting the client.
 
-### Contact
+### License
 
-- **Author**: Keagan Gilmore
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
 - **Email**: [keagangilmore@gmail.com](mailto:keagangilmore@gmail.com)
+- **Discord**: [keagan2980](https://discord.com/users/keagan2980)
+
+## Acknowledgments
+
+- Special thanks to all contributors and the open-source community.
+- BattlePig, the original creator of ytks.
+- Dwidge [@dwidge](https://github.com/dwidge) for Deployment of the YT Nexus DB.
