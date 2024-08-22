@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/yt-nexus-client/static/css/main.1b24c1fc.css",
+    "main.css": "/yt-nexus-client/static/css/main.7d9af457.css",
     "main.js": "/yt-nexus-client/static/js/main.bba53cc0.js",
     "static/js/453.f00a6eec.chunk.js": "/yt-nexus-client/static/js/453.f00a6eec.chunk.js",
     "static/media/nexus-logo.png": "/yt-nexus-client/static/media/nexus-logo.39708748ca885eb79aa9.png",
     "static/media/logo.svg": "/yt-nexus-client/static/media/logo.e551674f4d689328f16ce6508b4e42f9.svg",
     "index.html": "/yt-nexus-client/index.html",
-    "main.1b24c1fc.css.map": "/yt-nexus-client/static/css/main.1b24c1fc.css.map",
+    "main.7d9af457.css.map": "/yt-nexus-client/static/css/main.7d9af457.css.map",
     "main.bba53cc0.js.map": "/yt-nexus-client/static/js/main.bba53cc0.js.map",
     "453.f00a6eec.chunk.js.map": "/yt-nexus-client/static/js/453.f00a6eec.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1b24c1fc.css",
+    "static/css/main.7d9af457.css",
     "static/js/main.bba53cc0.js"
   ]
 }
